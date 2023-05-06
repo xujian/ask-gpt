@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { IconButton, Sheet, Input } from '@mui/joy'
+import { IconButton, Sheet, Input, Textarea } from '@mui/joy'
 import UpIcon from '@heroicons/react/24/solid/ArrowUpIcon'
 
 export default function InputBox (props: {
@@ -28,22 +28,14 @@ export default function InputBox (props: {
         background: 'transparent'
       }}
     >
-      <Input
+      <Textarea
         defaultValue={messageInput}
+        variant="outlined"
         onChange={(event) => setMessageInput(event.target.value)}
-        fullWidth
-        autoFocus
-        id="message-input"
-        sx={{
-          ['& .MuiInputBase-root']: {
-            fontSize: 12,
-            borderRadius: '16px',
-            backgroundColor: '#00000033',
-            backdropFilter: 'blur(40px)'
-          },
-        }}
+        placeholder="Input prompt..."
+        maxRows={4}
         onKeyDown={(event) => {
-          if (event.keyCode === 13 && !event.shiftKey && !event.ctrlKey && !event.altKey && !event.metaKey) {
+          if (event.keyCode === 13 && event.ctrlKey) {
             event.preventDefault()
             submit()
             setMessageInput('')
@@ -55,6 +47,26 @@ export default function InputBox (props: {
             <UpIcon />
           </IconButton>
         }
+        sx={{
+          width: '100%',
+          ['& .MuiInputBase-root']: {
+            fontSize: 12,
+            borderRadius: '16px',
+            backgroundColor: '#00000033',
+            backdropFilter: 'blur(40px)'
+          },
+          '& .MuiTextarea-endDecorator': {
+            marginInlineStart: 0,
+            marginInlineEnd: 0,
+            marginBlockStart: 0,
+            position: 'absolute',
+            right: '3px',
+            top: '4px',
+          },
+          '& .MuiIconButton-root': {
+            minHeight: '31px'
+          }
+        }}
       />
     </Sheet>
   )
