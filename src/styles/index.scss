@@ -1,0 +1,21 @@
+@use 'sass:meta';
+@import './titlebar.scss';
+@import './message.scss';
+@import './scrollbar.scss';
+
+html > body {
+  margin: 0;
+  background-color: transparent;
+  overflow: hidden;
+}
+
+#root {
+  width: 100vw;
+  height: 100vh;
+  background-color: transparent;
+  border: solid 1px #323742;
+  box-sizing: border-box;
+  border-radius: 16px;
+  font-size: 14px;
+  overflow: hidden;
+}

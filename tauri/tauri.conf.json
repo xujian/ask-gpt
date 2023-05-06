@@ -1,0 +1,95 @@
+{
+  "$schema": "../node_modules/@tauri-apps/cli/schema.json",
+  "build": {
+    "beforeBuildCommand": "npm run build:react",
+    "beforeDevCommand": "cross-env BROWSER=none npm run start:react",
+    "devPath": "http://localhost:3000",
+    "distDir": "../build",
+    "withGlobalTauri": true
+  },
+  "package": {
+    "productName": "ask-gpt",
+    "version": "0.0.1"
+  },
+  "tauri": {
+    "allowlist": {
+      "shell": {
+        "open": true
+      },
+      "app": {
+        "all": true
+      },
+      "window": {
+        "all": true
+      },
+      "fs": {
+        "all": true,
+        "scope": [
+          "$APPDATA",
+          "$APPDATA/*",
+          "$APPCONFIG",
+          "$APPCONFIG/*",
+          "$LOCALDATA/ask-gpt/*"
+        ]
+      },
+      "http": {
+        "all": true
+      }
+    },
+    "bundle": {
+      "active": true,
+      "category": "DeveloperTool",
+      "copyright": "",
+      "deb": {
+        "depends": []
+      },
+      "externalBin": [],
+      "icon": [
+        "icons/32x32.png",
+        "icons/128x128.png",
+        "icons/128x128@2x.png",
+        "icons/icon.icns",
+        "icons/icon.ico"
+      ],
+      "identifier": "ask-gpt.tsankao.works",
+      "longDescription": "",
+      "macOS": {
+        "entitlements": null,
+        "exceptionDomain": "",
+        "frameworks": [],
+        "providerShortName": null,
+        "signingIdentity": null
+      },
+      "resources": [],
+      "shortDescription": "",
+      "targets": "all",
+      "windows": {
+        "certificateThumbprint": null,
+        "digestAlgorithm": "sha256",
+        "timestampUrl": ""
+      }
+    },
+    "security": {
+      "csp": null
+    },
+    "updater": {
+      "active": false,
+      "endpoints": [
+      ],
+      "dialog": true,
+      "pubkey": ""
+    },
+    "windows": [
+      {
+        "fullscreen": false,
+        "height": 800,
+        "resizable": true,
+        "title": "Ask-GPT",
+        "width": 1280,
+        "decorations": false,
+        "transparent": true,
+        "titleBarStyle": "Transparent"
+      }
+    ]
+  }
+}
