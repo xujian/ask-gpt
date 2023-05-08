@@ -49,12 +49,6 @@ export default function InputBox (props: {
         }
         sx={{
           width: '100%',
-          ['& .MuiInputBase-root']: {
-            fontSize: 12,
-            borderRadius: '16px',
-            backgroundColor: '#00000033',
-            backdropFilter: 'blur(40px)'
-          },
           '& .MuiTextarea-endDecorator': {
             marginInlineStart: 0,
             marginInlineEnd: 0,
