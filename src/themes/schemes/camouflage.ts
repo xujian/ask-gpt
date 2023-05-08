@@ -16,11 +16,6 @@ const theme: CssVarsThemeOptions = {
       palette: {
         primary: {
           ...shades,
-          solidBg: '#0078D4',
-          solidHoverBg: '#106EBE',
-          solidActiveBg: '#005A9E',
-          solidDisabledBg: '#F3F2F1',
-          solidDisabledColor: '#A19F9D',
         },
         background: {
           surface: '#001024'
@@ -31,11 +26,6 @@ const theme: CssVarsThemeOptions = {
       palette: {
         primary: {
           ...shades,
-          solidBg: '#999',
-          solidHoverBg: '#106EBE',
-          solidActiveBg: '#005A9E',
-          solidDisabledBg: '#F3F2F1',
-          solidDisabledColor: '#A19F9D',
         },
       },
     },

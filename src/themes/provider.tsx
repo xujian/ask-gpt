@@ -5,8 +5,10 @@ import CssBaseline from '@mui/joy/CssBaseline'
 import { extendTheme } from '@mui/joy/styles'
 import { fetchTheme, useColorMode, useScheme } from '../store'
 import schemes from './schemes'
+import baseScheme from './schemes/base'
 import { SchemeBuilder } from './types'
 import { useAppDispatch } from '../store/hooks'
+import merge from 'lodash/merge'
 
 const AppThemeProvider: React.FC<{
   children: React.ReactNode
@@ -22,28 +24,14 @@ const AppThemeProvider: React.FC<{
 
   // const [mergedTheme, setMergedTheme] = useState<Theme>(defaultTheme)
   const theme = useMemo(() => {
-    const s = schemes[scheme]
+    const activeScheme = schemes[scheme],
+      mergedTheme = merge(activeScheme, baseScheme)
     const t = extendTheme({
-      ...schemes[scheme],
+      ...mergedTheme,
     })
-    console.log('theme provider--------useMemo', s, scheme, t)
     return t
   }, [scheme])
 
-  // useEffect(() => {
-  //   setMergedTheme(extendTheme({
-  //     ...schemes[scheme]
-  //   }))
-  // }, [scheme])
-  
-
-  // const theme = extendTheme({
-  //   ...mergedTheme,
-  //   fontFamily: {
-  //     display: "'Inter', var(--joy-fontFamily-fallback)",
-  //     body: "'Inter', var(--joy-fontFamily-fallback)",
-  //   }
-  // })
   return (
     <CssVarsProvider theme={theme}
       defaultMode={colorMode}>
